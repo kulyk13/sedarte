@@ -1,0 +1,31 @@
+@import "../variables";
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  margin-bottom: 34px;
+
+  &__item {
+    font-size: 11px;
+
+    &:nth-child(n + 2) {
+      margin-left: 5px;
+    }
+  }
+
+  &__link {
+    padding: 0;
+  }
+}
+
+//ADAPTIVE
+
+@media (max-width: 575.98px) {
+
+  .breadcrumbs {
+
+    &__item {
+      font-size: 9px;
+    }
+  }
+}

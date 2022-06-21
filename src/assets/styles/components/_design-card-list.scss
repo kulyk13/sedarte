@@ -1,0 +1,144 @@
+@import "../variables";
+
+.design-card-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 42px;
+    margin-bottom: 27px;
+    overflow: hidden;
+
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+  }
+
+  &__img-link {
+    position: relative;
+    padding: 20px;
+    transition: 0.3s;
+
+    &:hover,
+    &:focus-within {
+      &::before,
+      &::after,
+      span {
+        opacity: 1;
+        transition: 0.3s;
+      }
+    }
+    &::before {
+      content: "";
+      width: 1px;
+      height: 250px;
+      background-color: #000;
+      position: absolute;
+      left: 45px;
+      top: -50px;
+      z-index: 10;
+      animation: slideLine3 linear 1.7s 1s infinite;
+      opacity: 0;
+    }
+
+    &::after {
+      content: "";
+      width: 1px;
+      height: 250px;
+      background-color: #000;
+      position: absolute;
+      right: 45px;
+      top: -50px;
+      z-index: 10;
+      animation: slideLine4 linear 1.7s 0.7s infinite;
+      opacity: 0;
+    }
+
+    span {
+      width: 216px;
+      height: 1px;
+      background-color: #000;
+      position: absolute;
+      opacity: 0;
+
+      &:first-child {
+        top: 15px;
+        left: 0;
+        animation: slideLine1 linear 1.7s 0.1s infinite;
+      }
+
+      &:last-child {
+        bottom: 11px;
+        right: 0;
+        animation: slideLine2 linear 1.7s 0.5s infinite;
+      }
+    }
+  }
+
+  &__link {
+    color: #000;
+    margin-top: -18px;
+  }
+}
+
+//ANIMATION
+
+@keyframes slideLine1 {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+@keyframes slideLine2 {
+  0% {
+    transform: translateX(200%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideLine3 {
+  0% {
+    transform: translateY(200%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slideLine4 {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+//ADAPTIVE
+
+@media (max-width: 1199.98px) {
+
+  .design-card-list {
+    justify-content: space-between;
+
+    &__item {
+      margin-right: 0;
+    }
+  }
+}
+
+@media (max-width: 991.98px) {
+
+  .design-card-list {
+    justify-content: space-evenly;
+  }
+
+}
